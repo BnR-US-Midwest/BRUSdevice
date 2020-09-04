@@ -1,0 +1,12 @@
+# Object files
+*.set
+*.isopen
+
+# Temp folder
+BRUSdevice/Temp
+
+# Diagnosis folder
+BRUSdevice/Diagnosis
+
+# Binaries folder
+BRUSdevice/Binaries

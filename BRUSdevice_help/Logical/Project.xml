@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DocumentationStudio Version="1.2.0.1">
+  <Package>
+    <Objects>
+      <Library>
+        <Name>BRUSdevice</Name>
+        <Type>Library</Type>
+        <Description></Description>
+        <Path>C:\Projects\_BRUSLibraries\BRUSdevice\BRUSdevice\Logical\Lib\BRUSdevice</Path>
+      </Library>
+    </Objects>
+  </Package>
+</DocumentationStudio>

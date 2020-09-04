@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--Documentation Studio-->
+<DocumentationStudio Version="1.2.0.1">
+  <Project>
+    <Description>Default project</Description>
+    <PathIsRelativ>false</PathIsRelativ>
+    <BasePath>C:/Projects/_BRUSLibraries/BRUSdevice/BRUSdevice_help/Logical/_Base</BasePath>
+  </Project>
+</DocumentationStudio>

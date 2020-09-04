@@ -1,0 +1,3 @@
+VAR CONSTANT
+	usbdevMAX_NODES : USINT := 4; (*Maximum number of USB ports that will be checked*)
+END_VAR
