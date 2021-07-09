@@ -1,0 +1,9 @@
+VAR
+	CIFSDevChk_0 : CIFSDevChk;
+	enableBOOL : BOOL;
+	CIFSDevPar : CIFSDevChkPar_typ;
+	linkBOOL : BOOL;
+	ejectBOOL : BOOL;
+	resetBOOL : BOOL;
+	updateBOOL : BOOL;
+END_VAR

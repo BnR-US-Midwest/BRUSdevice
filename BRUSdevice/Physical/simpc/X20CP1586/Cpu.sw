@@ -1,12 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version=4.7.4.67 SP?>
+<?AutomationStudio FileVersion="4.9"?>
 <SwConfiguration CpuAddress="SL1" xmlns="http://br-automation.co.at/AS/SwConfiguration">
   <TaskClass Name="Cyclic#1">
     <Task Name="TestPrg" Source="Testing.TestPrg.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#2" />
   <TaskClass Name="Cyclic#3" />
-  <TaskClass Name="Cyclic#4" />
+  <TaskClass Name="Cyclic#4">
+    <Task Name="EX_CIFSDev" Source="Examples.EX_CIFSDevChk.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="EX_USBDevC" Source="Examples.EX_USBDevChk.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+  </TaskClass>
   <TaskClass Name="Cyclic#5" />
   <TaskClass Name="Cyclic#6" />
   <TaskClass Name="Cyclic#7" />

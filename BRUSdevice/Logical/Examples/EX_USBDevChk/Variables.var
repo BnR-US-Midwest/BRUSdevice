@@ -1,0 +1,8 @@
+VAR
+	enableBOOL : BOOL;
+	linkBOOL : BOOL;
+	ejectBOOL : BOOL;
+	resetBOOL : BOOL;
+	updateBOOL : BOOL;
+	USBDevChk_0 : USBDevChk;
+END_VAR
