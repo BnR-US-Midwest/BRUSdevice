@@ -68,11 +68,7 @@ FUNCTION_BLOCK CIFSDevChk
 				IS.fb.devLink.pDevice	:= ADR(IS.par.devName); // name of the created device
 				IS.fb.devLink.enable	:= TRUE;
 			
-				IF Eject THEN
-					Info.Status				:= 'ERR: Connection attempt aborted!';
-					IS.step					:= CIFS_IDLE;
-					IS.fb.devLink.enable	:= FALSE;
-				ELSIF IS.fb.devLink.status = ERR_FUB_BUSY OR IS.fb.devLink.status = ERR_FUB_ENABLE_FALSE THEN
+				IF IS.fb.devLink.status = ERR_FUB_BUSY OR IS.fb.devLink.status = ERR_FUB_ENABLE_FALSE THEN
 					// do nothing, stay in state
 				ELSIF IS.fb.devLink.status = ERR_OK THEN
 					// success, move to grab mem info
