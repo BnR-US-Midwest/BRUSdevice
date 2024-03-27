@@ -59,7 +59,7 @@ FUNCTION_BLOCK CIFSDevChk
 				ELSIF (Eject OR NOT(Enable)) AND Ready THEN
 					Info.Status			:= 'Disconnecting...';
 					IS.step				:= CIFS_UNLINK;
-				ELSIF NOT Enable THEN
+				ELSIF NOT Enable OR (Update AND NOT IS.old.update) THEN
 					IS.stat.initDone	:= FALSE;
 				END_IF
 			
@@ -133,11 +133,6 @@ FUNCTION_BLOCK CIFSDevChk
 		// call device related functions
 		IS.fb.devLink();
 		IS.fb.devUnlink();
-				
-		// check for update commands
-		IF Update AND NOT IS.old.update THEN
-			IS.stat.initDone		:= FALSE;
-		END_IF
 	END_IF
 	
 	// FUNCTION BLOCK DISABLED AND EJECTED
