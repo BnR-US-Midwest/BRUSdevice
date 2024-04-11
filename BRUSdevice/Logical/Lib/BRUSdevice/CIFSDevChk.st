@@ -129,6 +129,12 @@ FUNCTION_BLOCK CIFSDevChk
 		// call device related functions
 		IS.fb.devLink();
 		IS.fb.devUnlink();
+		
+		// reject update commands
+		IF Update AND NOT IS.old.update AND IS.step <> CIFS_IDLE THEN
+			Info.Status			:= 'Update failed - State must be Idle';
+		END_IF
+		
 	END_IF
 	
 	// FUNCTION BLOCK DISABLED AND EJECTED
