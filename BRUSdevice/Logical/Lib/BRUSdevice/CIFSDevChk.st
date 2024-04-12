@@ -59,7 +59,7 @@ FUNCTION_BLOCK CIFSDevChk
 				ELSIF (Eject OR NOT(Enable)) AND Ready THEN
 					Info.Status			:= 'Disconnecting...';
 					IS.step				:= CIFS_UNLINK;
-				ELSIF NOT Enable THEN
+				ELSIF NOT Enable OR (Update AND NOT IS.old.update) THEN
 					IS.stat.initDone	:= FALSE;
 				END_IF
 			
@@ -68,11 +68,7 @@ FUNCTION_BLOCK CIFSDevChk
 				IS.fb.devLink.pDevice	:= ADR(IS.par.devName); // name of the created device
 				IS.fb.devLink.enable	:= TRUE;
 			
-				IF Eject THEN
-					Info.Status				:= 'ERR: Connection attempt aborted!';
-					IS.step					:= CIFS_IDLE;
-					IS.fb.devLink.enable	:= FALSE;
-				ELSIF IS.fb.devLink.status = ERR_FUB_BUSY OR IS.fb.devLink.status = ERR_FUB_ENABLE_FALSE THEN
+				IF IS.fb.devLink.status = ERR_FUB_BUSY OR IS.fb.devLink.status = ERR_FUB_ENABLE_FALSE THEN
 					// do nothing, stay in state
 				ELSIF IS.fb.devLink.status = ERR_OK THEN
 					// success, move to grab mem info
@@ -133,11 +129,12 @@ FUNCTION_BLOCK CIFSDevChk
 		// call device related functions
 		IS.fb.devLink();
 		IS.fb.devUnlink();
-				
-		// check for update commands
-		IF Update AND NOT IS.old.update THEN
-			IS.stat.initDone		:= FALSE;
+		
+		// reject update commands
+		IF Update AND NOT IS.old.update AND IS.step <> CIFS_IDLE THEN
+			Info.Status			:= 'Update failed - State must be Idle';
 		END_IF
+		
 	END_IF
 	
 	// FUNCTION BLOCK DISABLED AND EJECTED
